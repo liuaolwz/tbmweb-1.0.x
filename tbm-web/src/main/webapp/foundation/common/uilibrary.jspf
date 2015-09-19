@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="<%=contextPath%>/extjs/ext4-min/resources/ext-theme-<%=theme%>/ext-theme-<%=theme%>-all.css">
+<script type="text/javascript" language="javascript" src="<%=contextPath%>/VAADIN/ext4-min/ext-all.js"></script>
+<script type="text/javascript">
+    Ext.BLANK_IMAGE_URL = '<%=contextPath%>/extjs/ext4-min/resources/themes/images/default/tree/s.gif';
+</script>
+<script type="text/javascript" language="javascript" src="<%=contextPath%>/extjs/ext4-min/locale/ext-lang-<%=locale%>.js"></script>
+
+<script type="text/javascript" language="javascript" src="<%=contextPath%>/jquery/jquery-1.8.0.min.js"></script>
+
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/tree-store-override.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/common.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/layout/layout-common.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/model/model-base.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/model/model-simple.js"></script>

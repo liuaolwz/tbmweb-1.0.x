@@ -1,0 +1,5 @@
+<%@ page import="java.util.Date" %>
+<script>
+    var serverDate = new Date();
+    serverDate.setTime(<%=new Date().getTime()%>);
+</script>

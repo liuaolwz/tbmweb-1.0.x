@@ -1,0 +1,35 @@
+<%@ page isELIgnored="false" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="com.mittop.platform.soupe.core.model.Page" %>
+<%@ page import="com.mittop.platform.soupe.core.util.PageUtil" %>
+<%
+    String currentRootPageTitle = "";
+    for (Page rootPage : rootPages) {
+        if (rootPage.isCurrent()) {
+            currentRootPageTitle = rootPage.getTitle(locale);
+            break;
+        }
+    }
+
+    Set<Page> pages = PageUtil.getPages(request);
+%>
+<%@ include file="/foundation/common/init.jspf" %>
+<div id="soupe-left-navigator" class="soupe-left-navigator">
+    <!--
+    <div class="entrance">
+        <a href="#"></a>
+    </div>
+    -->
+    <div class="soupe-app-header">
+        <div class="soupe-app-title"><%=currentRootPageTitle%></div>
+        <div class="soupe-app-setting soupe-app-setting-icon"></div>
+    </div>
+    <div class="soupe-app-center">
+        <div class="soupe-secondary-link">
+            <%
+                out.print(PageUtil.getPagesAsHtml(pages, contextPath, request));
+            %>
+        </div>
+    </div>
+    <div class="soupe-app-bottom"></div>
+</div>

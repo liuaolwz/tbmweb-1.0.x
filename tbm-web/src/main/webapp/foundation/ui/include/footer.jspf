@@ -1,0 +1,11 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page isELIgnored="false" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ include file="/foundation/common/init.jspf" %>
+<%
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+    String year = sdf.format(new Date());
+%>
+<div id="soupe-footer" class="soupe-footer">
+    <span class="right">版权所有 ©<%=year%> 中国电信集团公司</span>
+</div>
