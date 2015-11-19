@@ -2,24 +2,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>tbm-1.0.x</artifactId>
-        <groupId>com.tumbleweed.platform.trunk</groupId>
+        <groupId>com.tumbleweed.product.tbm</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>tbm-web</artifactId>
     <packaging>war</packaging>
-    <name>Tbm Web</name>
-    <properties>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.tumbleweed.platform.trunk</groupId>
-            <artifactId>tbm-themes</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.tumbleweed.platform.trunk</groupId>
-            <artifactId>tbm-common</artifactId>
-        </dependency>
-    </dependencies>
+    <name>tbm-web</name>
 </project>

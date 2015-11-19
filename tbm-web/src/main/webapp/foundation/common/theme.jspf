@@ -1,7 +1,0 @@
-<link type="text/css" rel="stylesheet" href="<%=contextPath%>/extjs/themes/<%=theme%>/css/layout.css">
-<link type="text/css" rel="stylesheet" href="<%=contextPath%>/extjs/themes/<%=theme%>/css/common.css">
-<link type="text/css" rel="stylesheet" href="<%=contextPath%>/extjs/themes/<%=theme%>/css/link.css">
-<link type="text/css" rel="stylesheet" href="<%=contextPath%>/extjs/themes/<%=theme%>/css/header.css">
-<link type="text/css" rel="stylesheet" href="<%=contextPath%>/extjs/themes/<%=theme%>/css/navigator.css">
-<link type="text/css" rel="stylesheet" href="<%=contextPath%>/extjs/themes/<%=theme%>/css/main.css">
-<link type="text/css" rel="stylesheet" href="<%=contextPath%>/extjs/themes/<%=theme%>/css/footer.css">
