@@ -15,7 +15,6 @@
         <dependency>
             <groupId>com.tumbleweed.platform.trunk</groupId>
             <artifactId>trunk-util</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

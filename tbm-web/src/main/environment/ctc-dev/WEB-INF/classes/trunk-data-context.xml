@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+        <constructor-arg ref="lazyDataSource"/>
+    </bean>
+
+    <bean id="lazyDataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+        <property name="targetDataSource">
+            <ref local="originDataSource"/>
+        </property>
+    </bean>
+    <!--
+    <bean id="originDataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+        <property name="driverClassName" value="${soupe.persistence.driver}"/>
+        <property name="url" value="${soupe.persistence.url}"/>
+        <property name="username" value="${soupe.persistence.username}"/>
+        <property name="password" value="${soupe.persistence.password}"/>
+        <property name="defaultAutoCommit" value="false"/>
+        <property name="initialSize" value="${soupe.persistence.pool.minSize}"/>
+        <property name="minIdle" value="${soupe.persistence.pool.minSize}"/>
+        <property name="maxActive" value="${soupe.persistence.pool.maxSize}"/>
+        <property name="maxIdle" value="${soupe.persistence.pool.maxSize}"/>
+        <property name="maxWait" value="${soupe.persistence.pool.blockingTimeout}"/>
+        <property name="jdbcInterceptors" value="ConnectionState;StatementFinalizer"/>
+        <property name="validationQuery" value="${soupe.persistence.pool.validationQuery}"/>
+        <property name="validationInterval" value="30000"/>
+        <property name="logAbandoned" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+    </bean>
+    -->
+    <bean id="originDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="${soupe.persistence.jndiName}" />
+    </bean>
+    
+
+    <!--
+    <jdbc:embedded-database id="originDataSource" />
+    -->
+
+    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocations">
+            <list>
+                <!--<value>classpath:sqlmap-config-db2.xml</value>-->
+                <value>classpath:sqlmap-config-oracle.xml</value>
+            </list>
+        </property>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">-->
+        <!--<jdbc:script location="classpath:sql/${soupe.persistence.type}/init-data.sql"/>-->
+    <!--</jdbc:initialize-database>-->
+
+</beans>

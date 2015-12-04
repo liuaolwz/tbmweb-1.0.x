@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.tumbleweed.product.tbm</groupId>
+    <artifactId>tbm-1.0.x</artifactId>
     <packaging>pom</packaging>
     <name>TBM</name>
     <modules>
@@ -16,7 +17,6 @@
         <module>tbm-themes</module>
         <module>tbm-common</module>
     </modules>
-    <artifactId>tbm-1.0.x</artifactId>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -112,4 +112,15 @@
             <url>http://123.56.228.198:8081/nexus/content/repositories/tumbleweed-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+    <profiles>
+        <profile>
+            <id>fast</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>deploy</id>
+        </profile>
+    </profiles>
 </project>
