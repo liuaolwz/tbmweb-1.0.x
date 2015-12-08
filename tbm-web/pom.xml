@@ -12,16 +12,6 @@
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>com.tumbleweed.platform.trunk</groupId>
-            <artifactId>tbm-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.tumbleweed.platform.trunk</groupId>
-            <artifactId>tbm-themes</artifactId>
-        </dependency>
-    </dependencies>
     <build>
         <finalName>tbm</finalName>
         <pluginManagement>
@@ -182,6 +172,16 @@
             </plugins>
         </pluginManagement>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.tumbleweed.platform.trunk</groupId>
+            <artifactId>tbm-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tumbleweed.platform.trunk</groupId>
+            <artifactId>tbm-themes</artifactId>
+        </dependency>
+    </dependencies>
     <profiles>
         <profile>
             <id>deploy</id>

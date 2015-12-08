@@ -4,7 +4,6 @@
 	<Properties>
 		<Property name="log_home">/Users/mylover/Workspaces/log/tbmlog</Property>
 	</Properties>
-    
     <Loggers>
         <Root level="info">
         	<AppenderRef ref="console"/>
@@ -16,23 +15,11 @@
             <AppenderRef ref="cloudcom"/>
             <AppenderRef ref="console"/>
         </Logger>
-        
-    	<Logger name="net.sf.ezmorph.bean.BeanMorpher" level="error" additivity="false">
-            <AppenderRef ref="cloudcom"/>
-            <AppenderRef ref="console"/>
-        </Logger>
-        
-    	<Logger name="net.sf.json.JSONObject" level="error" additivity="false">
-            <AppenderRef ref="cloudcom"/>
-            <AppenderRef ref="console"/>
-        </Logger>
     </Loggers>
-	
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} [%p] %c{1}%x - %m%n"/>
         </Console>
-        
         <RollingRandomAccessFile name="cloudcom" fileName="${log_home}/cloudcom.log"
                      filePattern="${log_home}/cloudcom.log.%-d{yyyy-MM-dd-HH-mm}">
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} %x - %m%n"/>
@@ -40,9 +27,7 @@
             	<TimeBasedTriggeringPolicy interval="20" modulate="false"/>
             </Policies>
         </RollingRandomAccessFile>
-        
-        <RollingRandomAccessFile name="clouderror" fileName="${log_home}/clouderror.log"
-                     filePattern="${log_home}/clouderror.log.%-d{yyyy-MM-dd}">
+        <RollingRandomAccessFile name="clouderror" fileName="${log_home}/clouderror.log" filePattern="${log_home}/clouderror.log.%-d{yyyy-MM-dd}">
             <ThresholdFilter level="error" onMatch="ACCEPT"/>
             <PatternLayout pattern="%-d{yyyy-MM-dd HH:mm:ss,SSS} %x - %m%n"/>
             <Policies>
