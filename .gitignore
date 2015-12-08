@@ -48,9 +48,9 @@ Thumbs.db
 #####################
 .idea
 *.ids
-*.iml
 *.iws
 *.ipr
+*.iml
 
 # Maven generated files #
 #########################
