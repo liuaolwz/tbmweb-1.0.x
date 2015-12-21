@@ -182,6 +182,7 @@
             <artifactId>tbm-themes</artifactId>
         </dependency>
     </dependencies>
+    <!--
     <profiles>
         <profile>
             <id>deploy</id>
@@ -355,4 +356,5 @@
             </build>
         </profile>
     </profiles>
+    -->
 </project>
