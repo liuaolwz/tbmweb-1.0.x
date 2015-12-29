@@ -4,8 +4,6 @@
 
 <web-app>
     <display-name>tbm</display-name>
-
-
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>
