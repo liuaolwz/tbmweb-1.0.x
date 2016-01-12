@@ -16,5 +16,9 @@
             <groupId>com.tumbleweed.platform.trunk</groupId>
             <artifactId>trunk-util</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.tumbleweed.platform.trunk</groupId>
+            <artifactId>trunk-data</artifactId>
+        </dependency>
     </dependencies>
 </project>
