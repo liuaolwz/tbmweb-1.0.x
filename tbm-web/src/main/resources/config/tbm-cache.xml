@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
  	<bean id="cacheManager" class="com.tumbleweed.platform.trunk.data.core.ehcache.EhCacheManager" init-method="postConstruct" destroy-method="destroy">
-		<property name="ehcachePath" value="classpath:/script/ehcache.xml"/>
-		<property name="fullPath" value="true"/>
-	</bean>
+		<property name="ehcachePath" value="/script/ehcache.xml"/>
+        <property name="fullPath" value="true"/>
+    </bean>
 
 </beans>
