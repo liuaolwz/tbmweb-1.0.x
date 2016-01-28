@@ -19,7 +19,7 @@
 	</bean>
 
 	<bean id="jedisConnectionFactory0"
-		  class="com.tumbleweed.platform.trunk.data.core.redis.JedisConnectionFactory">
+		  class="JedisConnectionFactory">
 		<property name="hostName" value="${master.redis.ip}" />
 		<property name="port" value="${master.redis.port}" />
 		<property name="password" value="${master.redis.password}" />
@@ -39,7 +39,7 @@
 	</bean>
 
 	<bean id="jedisConnectionFactory1"
-		  class="com.tumbleweed.platform.trunk.data.core.redis.JedisConnectionFactory">
+		  class="JedisConnectionFactory">
 		<property name="hostName" value="${slave.redis.ip}" />
 		<property name="port" value="${slave.redis.port}" />
 		<property name="password" value="${slave.redis.password}" />

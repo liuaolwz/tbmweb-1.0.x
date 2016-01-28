@@ -20,5 +20,9 @@
             <groupId>com.tumbleweed.platform.trunk</groupId>
             <artifactId>trunk-data</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.tumbleweed.platform.trunk</groupId>
+            <artifactId>trunk-scheduler</artifactId>
+        </dependency>
     </dependencies>
 </project>
