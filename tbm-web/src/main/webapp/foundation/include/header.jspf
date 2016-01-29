@@ -1,0 +1,142 @@
+<%@ page isELIgnored="false" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ page import="com.eshore.sso.util.SysAddressUtil" %>
+<%@ page import="com.mittop.platform.soupe.base.util.BootstrapContextHelper" %>
+<%@ page import="com.mittop.platform.soupe.core.model.Domain" %>
+<%@ page import="com.mittop.platform.soupe.core.model.Page" %>
+<%@ page import="com.mittop.platform.soupe.core.model.User" %>
+<%@ page import="com.mittop.platform.soupe.core.service.DomainManager" %>
+<%@ page import="com.mittop.platform.soupe.core.service.SystemPreferencesManager" %>
+<%@ page import="com.mittop.platform.soupe.core.util.LocaleUtil" %>
+<%@ page import="com.mittop.platform.soupe.core.util.PageUtil" %>
+<%@ page import="com.mittop.platform.soupe.core.util.UserUtil" %>
+<%@ page import="com.mittop.product.bms.core.service.CommonManager" %>
+<%@ page import="java.util.Set" %>
+<script type="text/javascript" src="<%=contextPath%>/bbudget/js/common.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/common.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/model/model-organizable.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/js/model/model-user.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/bfoundation/js/model/model-set-of-books.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/bfoundation/js/component/com-set-of-books.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/foundation/common/updataUser.js"></script>
+<script type="text/javascript">
+    var contextPath = "<%=contextPath%>";
+</script>
+<%
+    Set<Page> rootPages = PageUtil.getRootPages(request);
+    User user = UserUtil.getCurrentUser(request);
+    Long userId = null;
+    Long domainId = null;
+    String screenName = null;
+    String setOfBooksName = null;
+    String domainCode = "";
+    if (user != null) {
+        DomainManager domainManager = BootstrapContextHelper.getBean(DomainManager.class);
+        CommonManager commonManager = BootstrapContextHelper.getBean(CommonManager.class);
+        Domain domain = domainManager.findById(user.getDomainId());
+        domainCode = domain.getCode();
+        screenName = (user.getScreenName() != null) ? user.getScreenName() : user.getName();
+        userId = user.getId();
+        String position = commonManager.findPositionOfUser(user.getUsername());
+        domainId = user.getDomainId();
+        if (screenName == null) {
+            if (position.equals("")) {
+                screenName = user.getName();
+            } else {
+                screenName = user.getName() + position;
+            }
+        } else {
+            if (position.equals("")) {
+                screenName = user.getName();
+            } else {
+                screenName = user.getName() + position;
+            }
+        }
+
+        SystemPreferencesManager systemPreferencesManager =
+                BootstrapContextHelper.getBean(SystemPreferencesManager.class);
+        boolean isPasswordSimpleCheckEnabled = systemPreferencesManager.getPasswordSimpleCheckEnabled(domain.getId());
+
+        String password = user.getPassword();
+        String loginName = user.getName();
+
+        if (isPasswordSimpleCheckEnabled && password.equals(loginName)) {%>
+<script>
+    setTimeout(function () {
+        var updataForm = createupdataForm("passwordForm", "<h2 style='text-align:center;color:red;'>为了您的数据安全,请修改密码!</h2>");
+        var passwordWindow = createWindow("passwordWindow", "修改密码", updataForm, true, false);
+        passwordWindow.show(true);
+    }, 2000)
+</script>
+
+<%
+        }
+    }
+%>
+
+<%@ include file="/foundation/common/init.jspf" %>
+
+
+<div id="soupe-header">
+    <div class="soupe-header-content">
+        <div class="bgLeft">
+            <div class="Head">
+                <span class="Logo_corp"></span>
+                <span class="Logo_sys"></span>
+                <% if (user != null) { %>
+                <div class="Head_R pa">
+                    欢迎您，<strong>
+                    <a href="#" onclick="updataUser('<%=userId%>','<%=domainId%>')">
+                        <font color="#ff6600"><%=screenName%>
+                        </font>
+                    </a>
+                    <input type="hidden" id="userId" value="<%=userId%>">
+                </strong> |
+                    <a href="<%=contextPath%>/security/logout"></b>退出</a><br>
+                    <a href="#"
+                       onClick="javascript:parent.location.href='<%=SysAddressUtil.getContextPath("00", domainCode)%>/sysmgr/login!mainPage.action';">首页</a>
+                    |
+                    <a href="<%=contextPath%>">全面预算</a> |
+                    <a href="#"
+                       onClick="javascript:parent.location.href='<%=SysAddressUtil.getContextPath("CW-CFBZ", domainCode)%>/goto.MainPage.do?provinceCode=<%=domainCode%>';">报账平台</a>
+                    |
+                    <a href="#"
+                       onClick="javascript:parent.location.href='<%=SysAddressUtil.getContextPath("CW-CFSW", domainCode)%>/sysmgr/login!ssoMainPage.action?provinceCode=<%=domainCode%>';">税费管理</a>
+                    |
+                    <a href="#"
+                       onClick="javascript:parent.location.href='<%=SysAddressUtil.getContextPath("CW-CFYX", domainCode)%>/sysmgr/login!ssoMainPage.action?provinceCode=<%=domainCode%>';">
+                        影像管理</a> |
+                    <a href="#"
+                       onClick="javascript:parent.location.href='<%=SysAddressUtil.getContextPath("CW-CFDA", domainCode)%>/sysmgr/login!ssoMainPage.action?provinceCode=<%=domainCode%>';">
+                        会计档案</a> |
+                    <a href="#"
+                       onClick="javascript:parent.location.href='<%=SysAddressUtil.getContextPath("CW-CFZJ", domainCode)%>/sysmgr/login!mainPage.action?provinceCode=<%=domainCode%>';">资金管控</a>
+                    |
+                    <a href="#"
+                       onClick="javascript:parent.location.href='<%=SysAddressUtil.getContextPath("CW-CFZC", domainCode)%>/sysmgr/login!ssoMainPage.action?provinceCode=<%=domainCode%>';">资产管理</a>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="WrapMenu">
+        <div class="Menu">
+            <div class="list menu_lv1_Obj">
+                <ul class="lv1">
+                    <%
+                        for (Page rootPage : rootPages) {
+                    %>
+                    <li class="<%if (rootPage.isCurrent()) {%>cur<%}%>">
+                        <a href="<%=contextPath%><%=rootPage.getLink()%>">
+                            <b><i><%=rootPage.getTitle(locale)%>
+                            </i></b>
+                        </a>
+                    </li>
+                    <%
+                        }
+                    %>
+                </ul>
+            </div>
+            <!--          <a href="javascript:;" class="arrowL"></a> <a href="javascript:;" class="arrowR"></a> -->
+        </div>
+    </div>
+</div>
