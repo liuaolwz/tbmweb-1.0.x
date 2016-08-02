@@ -29,17 +29,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.tumbleweed.platform.trunk</groupId>
-                <artifactId>tbm-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.tumbleweed.platform.trunk</groupId>
                 <artifactId>tbm-themes</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.tumbleweed.platform.trunk</groupId>
-                <artifactId>tbm-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
