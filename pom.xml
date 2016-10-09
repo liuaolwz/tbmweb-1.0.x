@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.tumbleweed.product.tbm</groupId>
-    <artifactId>tbm-1.0.x</artifactId>
+    <artifactId>tbmweb-parent</artifactId>
     <packaging>pom</packaging>
     <name>TBM</name>
     <modules>
