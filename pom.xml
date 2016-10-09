@@ -16,6 +16,7 @@
         <module>tbm-web</module>
         <module>tbm-themes</module>
         <module>tbm-common</module>
+        <module>tbm-core</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,8 +29,18 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.tumbleweed.product.tbm</groupId>
+                <artifactId>tbm-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.tumbleweed.platform.trunk</groupId>
                 <artifactId>tbm-themes</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tumbleweed.product.tbm</groupId>
+                <artifactId>tbm-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
