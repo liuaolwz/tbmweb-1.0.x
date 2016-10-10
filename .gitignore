@@ -55,6 +55,7 @@ Thumbs.db
 # Maven generated files #
 #########################
 target
+*.versionsBackup
 
 # Others #
 ##########
